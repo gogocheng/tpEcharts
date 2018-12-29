@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="__JS__/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <!--引入饼图css-->
+    <link rel="stylesheet" href="__CSS__/pie.css">
+    <!--引入其他图表css-->
+</head>
+<body style="height: 100%; margin: 0">
+<!--地图dom-->
+<div id="map" style="height: 100%"></div>
+<!--饼图dom-->
+<div id="pie_div">
+    <div id="pie"></div>
+</div>
+
+</body>
+</html>
+<script>
+    //地图显示数据url
+    var getMaPDataUrl = "{:url('Data/show')}";
+    //饼图显示数据url
+    var getPieDataUrl = "{:url('Data/show')}";
+    //地图dom
+    var mapDom = document.getElementById("map");
+    var myChart = echarts.init(mapDom);
+    //饼图dom
+    var pieDom = document.getElementById("pie");
+    var pieMyChart = echarts.init(pieDom);
+</script>
+<!--公共方法-->
+<script type="text/javascript" src="__JS__/common.js"></script>
+<!--引入地图封装js-->
+<script type="text/javascript" src="__JS__/map/map.js"></script>
+<!--引入饼图封装js-->
+<script type="text/javascript" src="__JS__/pie/pie.js"></script>
+
+
+<script>
+    //显示地图
+    map.getMapData(function (event) {
+        myChart.setOption(event, true);
+    });
+</script>
+<script>
+    //显示饼图
+    pie.getPieData(function (event) {
+        enterFormMyChart.setOption(event, true);
+    })
+</script>
